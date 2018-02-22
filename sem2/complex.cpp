@@ -15,6 +15,11 @@ class Complex
 		{
 			return Complex(re + tmp.re, im + tmp.im); 
 		}
+		
+		void operator<< (Complex &tmp)
+		{
+			std:: cout << tmp.re << " " << tmp.im << std:: endl;
+		}
 	
 };
 
@@ -24,7 +29,8 @@ int main()
 	Complex b = Complex( 5.6, 7.8 );  
 	Complex c = Complex( 0.0, 0.0 );  
 	c = a + b;  
-	c.display();
+	//c.display();
+	Complex:: cout << c;
 	return 0;
 }
 
