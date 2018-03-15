@@ -3,13 +3,6 @@ class Circle
 	private:
 		float x, y;
 		float r;
-	public:
-		Circle (float x0, float y0, float r0)
-		{
-			x = x0;
-			y = y0;
-			r = r0;
-		}
 		
 		float get_x()
 		{
@@ -30,17 +23,24 @@ class Circle
 		{
 			return 3.1415926 * r * r;
 		}
-		
-		int is_greater(Circle c)
+	public:
+		Circle (float x0, float y0, float r0)
 		{
-			if (r > c.r)
-			{
-				return 1;
-			}
-			else
-			{
-				return 0;
-			}
+			std:: cout << "Create circle with radius " << r0 << std:: endl;
+			x = x0;
+			y = y0;
+			r = r0;
+		}
+		~Circle()
+		{
+			std:: cout << "Deleting circle with radius " << r << std:: endl;
+		}
+		
+		
+		
+		int is_greater(const Circle& c)
+		{
+			return r > c.r;
 		}
 		
 		int is_intersect(Circle c)
