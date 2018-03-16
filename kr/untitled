@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+/*3 конструктора
+ * перегрузка +, -, унарный минус, умножение и деление, норма
+ * */
+
+class Complex 
+{
+	private: 
+		double re, im;
+		
+	public:
+		Complex ();
+		Complex (double _re) {
+			set_re(_re);
+		}
+		Complex (double _re, double _im) {
+			set_re(_re);
+			set_im(_im);
+		}
+		
+		double get_re() {
+			return re;
+		}
+		
+		double get_im() {
+			return im;
+		}
+		
+		void set_re (double _re) {
+			re = _re;
+		}
+		
+		void set_im (double _im) {
+			im = _im;
+		}
+		
+		friend double norm (Complex& src);
+		friend ostream& operator<<(ostream&, Complex&);
+		
+		/*Complex(double re0, double im0);
+		void display()
+		{
+			std:: cout << re << " " << im << std:: endl;
+		}  
+		Complex operator+ (Complex &tmp)
+		{
+			return Complex(re + tmp.re, im + tmp.im); 
+		}
+		
+		void operator<< (Complex &tmp)
+		{
+			std:: cout << tmp.re << " " << tmp.im << std:: endl;
+		}*/
+	
+};
+
+int main()
+{
+	/*Complex a = Complex( 1.2, 3.4 );  
+	Complex b = Complex( 5.6, 7.8 );  */
+	Complex c = Complex( 0.0, 0.0 );  
+	/*c = a + b;  
+	//c.display();*/
+	cout << c;
+	return 0;
+}
+
+double norm (Complex& src) {
+	return sqrt(src.get_re() * src.get_re() + src.get_im() * src.get_im());
+}
+
+ostream& operator << (ostream& os,  Complex src){
+	os << src.get_re() << " + " << src.get_im() << "i" << endl;
+	return os;
+}
