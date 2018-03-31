@@ -1,2 +1,2 @@
-# 4-CS-MIPT
-My attempts to code on CS classes:-)
+# game
+4 Term CS Project
